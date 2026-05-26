@@ -1,0 +1,102 @@
+/* Styles para DentalApp - interfaz más moderna y responsiva */
+:root{
+  /* Paleta de colores oscuros */
+  --bg: #111827; /* Fondo principal (Gris oscuro/azul) */
+  --card: #1f2937; /* Fondo de tarjetas (Un tono más claro) */
+  --accent: #38bdf8; /* Color de acento (Azul claro) */
+  --accent-2:#7dd3fc;
+  --muted: #9ca3af; /* Texto secundario (Gris claro) */
+  --text-main: #e5e7eb; /* Texto principal (Casi blanco) */
+  --border-color: #374151; /* Color de bordes */
+  --glass: rgba(31, 41, 55, 0.5); /* Efecto "glass" oscuro */
+  --glass-gradient: linear-gradient(180deg, rgba(31, 41, 55, 0.7), rgba(31, 41, 55, 0.6));
+}
+*{box-sizing:border-box;font-family: Inter, system-ui, Arial, sans-serif}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text-main); /* Color de texto principal para todo el body */
+}
+.sidebar{width:220px;position:fixed;left:0;top:0;bottom:0;background:linear-gradient(180deg,#123a6b,#0b2540);color:#fff;padding:24px}
+.sidebar .logo{display:flex;align-items:center;gap:8px}
+.sidebar h1{font-size:18px;margin:0}
+.sidebar ul{list-style:none;padding:20px 0 0;margin:0}
+.sidebar a{color:rgba(255,255,255,0.9);text-decoration:none;display:block;padding:10px;border-radius:8px}
+.sidebar a.active, .sidebar a:hover{background:rgba(255,255,255,0.06)}
+.content{margin-left:240px;padding:28px;max-width:980px}
+.header-text h2{
+  margin:0 0 6px;
+  font-size:22px;
+  color: #fff; /* Títulos principales en blanco */
+}
+.header-text p{margin:0 0 18px;color:var(--muted)}
+.glass-form{
+  background:var(--glass-gradient); /* Usar gradiente de vidrio oscuro */
+  padding:18px;
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.2); /* Sombra más oscura */
+  display:block;
+  backdrop-filter: blur(10px); /* Efecto desenfoque para el "glass" */
+}
+.input-group{display:flex;gap:12px;margin-bottom:12px}
+.input-group input,
+textarea#notas-cita {
+  flex:1;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid var(--border-color);
+  background: #2b3a4a; /* Fondo de input oscuro */
+  color: var(--text-main); /* Texto del input claro */
+  transition:all .18s;
+}
+textarea#notas-cita{width:100%;min-height:110px;margin-bottom:12px}
+.input-group input::placeholder, textarea#notas-cita::placeholder {
+    color: var(--muted); /* Placeholder más claro */
+}
+.input-group input:focus, textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(56, 189, 248, 0.2);transform:translateY(-1px)}
+.btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;padding:10px 14px;border:none;border-radius:10px;cursor:pointer;box-shadow:0 8px 18px rgba(43,139,242,0.14);transition:transform .14s}
+.btn-primary:hover{transform:translateY(-3px)}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:18px}
+.card{background:var(--card);padding:12px;border-radius:10px;box-shadow:0 6px 14px rgba(0,0,0,0.2)}
+.card h3{margin:0 0 6px;font-size:16px; color: #fff;}
+.card p{margin:6px 0;color:var(--muted)}
+.card small{color:var(--muted);display:block;margin-top:8px}
+.hero-card{display:flex;justify-content:space-between;align-items:center;background:var(--glass-gradient);padding:16px;border-radius:12px;margin-bottom:12px;box-shadow:0 8px 24px rgba(0,0,0,0.2); backdrop-filter: blur(10px);}
+.hero-card h2{margin:0;font-size:20px; color: #fff;}
+.hero-card p{margin:6px 0 0;color:var(--muted)}
+.hero-actions{display:flex;align-items:center}
+.btn-ghost{background:transparent;border:1px solid var(--border-color);padding:8px 10px;border-radius:10px;cursor:pointer; color: var(--text-main);}
+.btn-ghost:hover{background:rgba(255,255,255,0.08)}
+.cards-grid .card{transition:transform .16s, box-shadow .16s}
+.cards-grid .card:hover{transform:translateY(-6px);box-shadow:0 14px 34px rgba(0,0,0,0.25)}
+@media (max-width:800px){.sidebar{position:relative;width:100%;display:flex;gap:12px}.content{margin-left:0;padding:16px}}
+@media print{.sidebar, .btn-primary{display:none}.page-break{display:block;page-break-before:always;break-before:page}}
+
+/* Toast simple */
+.toast{position:fixed;right:20px;bottom:20px;background:#e5e7eb;color:#111;padding:8px 12px;border-radius:8px;opacity:0;transform:translateY(6px);transition:all .26s ease;z-index:9999}
+.toast.visible{opacity:1;transform:translateY(0)}
+
+/* Estilos para el panel de Admin */
+.admin-section {
+    margin-top: 2rem;
+}
+.admin-list .card {
+    margin-bottom: 12px;
+}
+.admin-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+}
+.admin-card p { margin: 4px 0 0; }
+.admin-actions {
+    display: flex;
+    gap: 10px;
+}
+.btn-edit, .btn-delete {
+    padding: 6px 12px; border-radius: 8px; text-decoration: none; color: white; border: none; cursor: pointer; font-size: 14px; transition: opacity 0.2s;
+}
+.btn-edit { background-color: #0ea5e9; }
+.btn-delete { background-color: #ef4444; }
+.btn-edit:hover, .btn-delete:hover { opacity: 0.85; }

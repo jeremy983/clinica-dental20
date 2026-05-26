@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Radiografías | DentalApp</title>
+    <link rel="stylesheet" href="color.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">🦷 <h1>DentalApp</h1></div>
+        <ul>
+            <li><a href="diente.html">🏠 Inicio</a></li>
+            <li><a href="Expedientes.html">📅 Citas</a></li>
+            <li><a href="Imágenes.html" class="active">🩻 Radiografías</a></li>
+            <li><a href="paciente.html">👥 Pacientes</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <div class="header-text">
+            <h2>Archivo Radiográfico</h2>
+            <p>Cargue las imágenes con registro automático de fecha.</p>
+        </div>
+        <form id="form-radio" class="glass-form">
+            <div class="input-group">
+                <select id="paciente-select-radio" required style="flex:1; padding:12px; border-radius:10px; border:1px solid var(--border-color); background: #2b3a4a; color: var(--text-main);">
+                    <option value="" disabled selected>-- Seleccione un Paciente --</option>
+                </select>
+                <input type="file" id="archivo-radio" accept="image/*" required>
+            </div>
+            <button type="submit" class="btn-secondary">Subir Radiografía</button>
+        </form>
+        <div id="lista-radios" class="cards-grid"></div>
+    </main>
+    <script src="componente.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pacientes | DentalApp</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap">
+    <link rel="stylesheet" href="color.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">🦷 <h1>DentalApp</h1></div>
+        <ul>
+            <li><a href="diente.html">🏠 Inicio</a></li>
+            <li><a href="Expedientes.html">📅 Citas</a></li>
+            <li><a href="paciente.html" class="active">👥 Pacientes</a></li>
+            <li><a href="Imágenes.html">🩻 Radiografías</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <div class="header-text hero-card">
+            <div class="hero-left">
+                <h2>Registro de Pacientes</h2>
+                <p>Administre la información de contacto de sus pacientes.</p>
+            </div>
+        </div>
+        <form id="form-paciente" class="glass-form">
+            <h3>Agregar Nuevo Paciente</h3>
+            <div class="input-group">
+                <input type="text" id="nombre-completo" placeholder="Nombre Completo" required>
+                <input type="tel" id="telefono" placeholder="Número de Teléfono" required>
+            </div>
+            <div class="input-group">
+                <input type="number" id="edad" placeholder="Edad" min="0" required>
+                <input type="text" id="direccion" placeholder="Dirección" required>
+            </div>
+            <button type="submit" class="btn-primary">Guardar Paciente</button>
+        </form>
+        <div style="margin: 20px 0;">
+            <input type="text" id="buscador-pacientes" placeholder="🔍 Buscar paciente..." style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
+        </div>
+        <div id="lista-pacientes" class="cards-grid"></div>
+    </main>
+    <script src="pacientes.js"></script>
+    <script>
+        document.getElementById('buscador-pacientes').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            const items = document.getElementById('lista-pacientes').children;
+            Array.from(items).forEach(item => {
+                item.style.display = item.textContent.toLowerCase().includes(term) ? '' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>

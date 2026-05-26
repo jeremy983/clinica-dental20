@@ -1,0 +1,48 @@
+:root {
+    /* Paleta de colores oscuros */
+    --primary: #38bdf8; /* Azul claro para acentos */
+    --primary-dark: #0ea5e9;
+    --bg: #111827; /* Fondo principal oscuro */
+    --surface: #1f2937; /* Color de superficie para tarjetas, etc. */
+    --text: #e5e7eb; /* Color de texto principal claro */
+    --text-muted: #9ca3af; /* Color de texto secundario */
+    --border: #374151; /* Color de borde */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar { width: 260px; background: var(--surface); height: 100vh; position: fixed; border-right: 1px solid var(--border); padding: 2rem 1rem; }
+.logo { display: flex; align-items: center; gap: 10px; color: var(--primary); margin-bottom: 2rem; }
+.sidebar ul { list-style: none; padding: 0; }
+.sidebar a { text-decoration: none; color: var(--text-muted); padding: 12px; display: block; border-radius: 8px; margin-bottom: 5px; }
+.sidebar a.active, .sidebar a:hover { background: rgba(255,255,255,0.05); color: var(--primary); font-weight: 600; }
+
+/* Contenido */
+.content { margin-left: 260px; padding: 3rem; width: 100%; }
+.header-text h2 { font-size: 2rem; color: var(--text); }
+
+/* Formularios */
+.glass-form { background: var(--surface); padding: 2rem; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.2); margin-bottom: 2rem; }
+.input-group { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+input, textarea { padding: 12px; border: 1px solid var(--border); border-radius: 8px; background-color: #2b3a4a; color: var(--text); }
+input::placeholder, textarea::placeholder { color: var(--text-muted); }
+textarea { width: 100%; height: 80px; margin-top: 10px; }
+button { width: 100%; padding: 12px; border-radius: 8px; border: none; color: white; cursor: pointer; font-weight: 600; }
+.btn-primary { background: var(--primary); }
+.btn-secondary { background: #1e293b; }
+
+/* Tarjetas */
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+.card { background: var(--surface); padding: 1.5rem; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+.card img { width: 100%; border-radius: 8px; margin-top: 10px; }
+.menu-card { text-align: center; transition: 0.3s; cursor: pointer; border: 2px solid transparent; }
+.menu-card:hover { border-color: var(--primary); transform: translateY(-5px); }
+.icon-big { font-size: 3rem; display: block; margin-bottom: 1rem; }
+.card-link { text-decoration: none; color: inherit; }

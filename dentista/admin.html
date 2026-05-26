@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración | DentalApp</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">🦷 <h1>DentalApp</h1></div>
+        <ul>
+            <li><a href="diente.html">🏠 Inicio</a></li>
+            <li><a href="Expedientes.html">📅 Citas</a></li>
+            <li><a href="paciente.html">👥 Pacientes</a></li>
+            <li><a href="Imágenes.html">🩻 Radiografías</a></li>
+            <li><a href="admin.html" class="active">⚙️ Admin</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <div id="admin-content" style="display: none;">
+            <div class="header-text">
+                <h2>Panel de Administración</h2>
+                <p>Edite o elimine registros de pacientes, citas y radiografías.</p>
+            </div>
+
+            <!-- Controles de Respaldo -->
+            <div style="margin-bottom: 20px; display: flex; gap: 10px;">
+                <button id="btn-export" class="btn-primary" style="background-color: #10b981;">💾 Descargar Respaldo</button>
+                <label for="btn-import" class="btn-primary" style="background-color: #f59e0b; cursor: pointer; margin-bottom: 0;">📂 Cargar Respaldo</label>
+                <input type="file" id="btn-import" accept=".json" style="display: none;">
+            </div>
+
+            <!-- Controles de Admin: Tabs y Buscador -->
+            <div style="margin: 20px 0; display: flex; gap: 15px; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+                <div class="tabs" style="display: flex; gap: 10px;">
+                    <button class="btn-primary tab-btn" data-target="pacientes">Pacientes</button>
+                    <button class="btn-ghost tab-btn" data-target="citas">Citas</button>
+                    <button class="btn-ghost tab-btn" data-target="radiografias">Radiografías</button>
+                </div>
+                <input type="text" id="admin-search" placeholder="🔍 Buscar en registros..." style="padding: 10px 15px; border-radius: 8px; border: 1px solid #374151; background: #1f2937; color: white; min-width: 250px;">
+            </div>
+
+            <div id="section-pacientes" class="admin-section tab-content">
+                <h3>Pacientes Registrados</h3>
+                <div id="lista-pacientes-admin" class="admin-list"></div>
+            </div>
+
+            <div id="section-citas" class="admin-section tab-content" style="display: none;">
+                <h3>Citas Agendadas</h3>
+                <div id="lista-citas-admin" class="admin-list"></div>
+            </div>
+
+            <div id="section-radiografias" class="admin-section tab-content" style="display: none;">
+                <h3>Radiografías Guardadas</h3>
+                <div id="lista-radiografias-admin" class="admin-list"></div>
+            </div>
+        </div>
+    </main>
+    <script src="admin01.js"></script>
+</body>
+</html>
